@@ -14,7 +14,7 @@ class PostController extends Controller
     }
     public function search(PostSearchRequest $request)
     {
-    $searchTerm = $request->get('query', 'Labore');
+    $searchTerm = $request->get('query', '');
     $perPage = $request->get('per_page', 20);
     $posts=Post::paginate( $perPage);
     $posts = Post::where('title', 'like', "%$searchTerm%")
